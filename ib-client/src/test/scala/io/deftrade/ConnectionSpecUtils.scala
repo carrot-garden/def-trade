@@ -33,7 +33,8 @@ import org.scalatest.time.{ Span, Millis }
 
 import TestServer.SEED
 
-import com.ib.client.{ EClientSocket, EWrapperMsgGenerator, AnyWrapper, EWrapper }
+//import com.ib.client.{ EClientSocket, EWrapperMsgGenerator, AnyWrapper, EWrapper }
+import com.ib.client.{ EClientSocket, EWrapperMsgGenerator, EWrapper }
 
 abstract class ConnectionSpecBase(_system: ActorSystem) extends TestKit(_system) {
   /*
@@ -286,7 +287,7 @@ abstract class IncomingSpecBase(_system: ActorSystem) extends ConnectionSpecBase
     val w = new Waiter()
     log.debug("New Waiter {}", shorter(w))
 
-    val ibSocket = new EClientSocket(f(w))
+    val ibSocket = new EClientSocket(f(w), ???) // XXX
     ibSocket.eConnect(null, TEST_PORT, 0)
     connectionPromise.success(())
 
@@ -318,7 +319,7 @@ abstract class OutgoingSpecBase(_system: ActorSystem) extends ConnectionSpecBase
 
   import TestServer._
 
-  val ibSocket = new EClientSocket(new EWrapperBase)
+  val ibSocket = new EClientSocket(new EWrapperBase, ???) // XXX
 
   import com.ib.client.{
     Contract => IbContract,

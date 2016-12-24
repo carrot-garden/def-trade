@@ -198,8 +198,8 @@ class IbDtoHomologationSpec extends WordSpec with Matchers with IbApiUtils {
 
         val contract = Contract(symbol = "99", secType = "98")
         val ibContract = new IbContract()
-        ibContract.m_symbol = "99"
-        ibContract.m_secType = "98"
+        //ibContract.m_symbol = "99"
+        //ibContract.m_secType = "98"
         assert(contract =#= ibContract)
 
         val contractDetails = ContractDetails()

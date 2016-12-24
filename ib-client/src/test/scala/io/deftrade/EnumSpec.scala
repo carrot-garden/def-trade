@@ -19,8 +19,12 @@ import scala.language.postfixOps
 import org.scalatest.{ FlatSpec, Assertions }
 import org.scalactic.Equality
 import com.ib.client.IApiEnum
-import com.ib.controller.{ Types, OrderType => IbOrderType, NewTickType }
-import com.ib.controller.OrderStatus
+//import com.ib.controller.{ Types, OrderType => IbOrderType, NewTickType }
+import com.ib.client.Types
+import com.ib.client.{OrderType => IbOrderType}
+import com.ib.client.{TickType => NewTickType}
+//import com.ib.controller.OrderStatus
+import com.ib.client.OrderStatus
 //import com.ib.controller.NewComboLeg
 
 /**

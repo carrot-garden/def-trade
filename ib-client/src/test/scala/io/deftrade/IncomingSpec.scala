@@ -22,8 +22,8 @@ class IncomingSpec extends IncomingSpecBase("IncomingSpec") {
     ContractDetails => IbContractDetails,
     Order => IbOrder,
     OrderState => IbOrderState,
-    Execution => IbExecution,
-    UnderComp => IbUnderComp
+    Execution => IbExecution
+//    UnderComp => IbUnderComp
   }
 
   import IB._
@@ -299,12 +299,12 @@ class IncomingSpec extends IncomingSpecBase("IncomingSpec") {
         dnv =>
           w =>
             new EWrapperCallbacks(w) {
-              override def deltaNeutralValidation(reqId: Int, underComp: IbUnderComp): Unit = {
-                asyncAssertionBlock(w) {
-                  assert(dnv.reqId =#= reqId)
-                  assert(dnv.underComp =#= underComp)
-                }
-              }
+//              override def deltaNeutralValidation(reqId: Int, underComp: IbUnderComp): Unit = {
+//                asyncAssertionBlock(w) {
+//                  assert(dnv.reqId =#= reqId)
+//                  assert(dnv.underComp =#= underComp)
+//                }
+//              }
             }
       }
     }
