@@ -92,6 +92,7 @@ abstract class IncomingSpecBase(_system: ActorSystem) extends ConnectionSpecBase
       log.info("dismiss: connection closed for {}", shorter(w));
       super.connectionClosed();
     }
+    
   }
 
   def nreps: Int

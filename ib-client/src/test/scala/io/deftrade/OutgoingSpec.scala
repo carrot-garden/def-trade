@@ -249,7 +249,7 @@ class OutgoingSpec extends OutgoingSpecBase("OutgoingSpec") {
         ReqFundamentalData(reqId, contract,
           reportType),
         ibSocket.reqFundamentalData(ibReqId, ibContract,
-          reportType.toString))
+          reportType.toString, null))
     }
     "send same byte stream as EClientSocket for CancelFundamentalData" in repeat(n) {
       val (reqId, ibReqId) = genDtoAndIbHomolog[ReqId]
@@ -266,7 +266,7 @@ class OutgoingSpec extends OutgoingSpecBase("OutgoingSpec") {
         CalculateImpliedVolatility(reqId, contract,
           optionPrice, underPrice),
         ibSocket.calculateImpliedVolatility(ibReqId, ibContract,
-          optionPrice, underPrice))
+          optionPrice, underPrice, null))
     }
     "send same byte stream as EClientSocket for CancelCalculateImpliedVolatility" in repeat(n) {
       val (reqId, ibReqId) = genDtoAndIbHomolog[ReqId]
@@ -283,7 +283,7 @@ class OutgoingSpec extends OutgoingSpecBase("OutgoingSpec") {
         CalculateOptionPrice(reqId, contract,
           volatility, underPrice),
         ibSocket.calculateOptionPrice(ibReqId, ibContract,
-          volatility, underPrice))
+          volatility, underPrice, null))
     }
     "send same byte stream as EClientSocket for CancelCalculateOptionPrice" in repeat(n) {
       val (reqId, ibReqId) = genDtoAndIbHomolog[ReqId]

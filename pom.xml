@@ -1,47 +1,78 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
 		<groupId>com.carrotgarden.a</groupId>
 		<artifactId>carrot-a</artifactId>
-		<version>2.0.0-SNAPSHOT</version>
-		<relativePath />
+		<version>0-SNAPSHOT</version>
+		<relativePath>.mvn</relativePath>
 	</parent>
 
 	<groupId>com.carrotgarden.test</groupId>
 	<artifactId>vendor_ibrk_akka-def-a</artifactId>
-	<version>2.0.0-SNAPSHOT</version>
+	<version>0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
+	<properties>
+
+		<version.scala.epoch>2.11</version.scala.epoch>
+		<version.scala.release>2.11.12</version.scala.release>
+
+		<!-- <version.scala.epoch>2.12</version.scala.epoch> -->
+		<!-- <version.scala.release>2.12.4</version.scala.release> -->
+
+		<version.scalatest>2.2.6</version.scalatest>
+
+	</properties>
+
 	<modules>
-        <module>db</module>
-        <module>db-init</module>
-		<module>demo</module>
-		<module>ib-client</module>
 		<module>macros</module>
+		<module>db</module>
+		<module>db-init</module>
+		<module>ib-client</module>
+		<module>demo</module>
 	</modules>
+
+	<build>
+		<plugins>
+
+			<plugin>
+				<groupId>com.carrotgarden.maven</groupId>
+				<artifactId>scalor-maven-plugin_2.12</artifactId>
+				<configuration>
+					<zincOptionsScala>
+						-Xsource:${version.scala.epoch}
+						-withVersionClasspathValidator:false
+						-compileorder:Mixed
+					</zincOptionsScala>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
 
 	<dependencies>
 
-		<dependency>
-			<groupId>com.carrotgarden.wrap</groupId>
-			<artifactId>carrot-wrap-ibrk-api</artifactId>
-			<version>2.0.0-SNAPSHOT</version>
-		</dependency>
+		<!-- <dependency> -->
+		<!-- <groupId>com.carrotgarden.wrap</groupId> -->
+		<!-- <artifactId>carrot-wrap-ibrk-api</artifactId> -->
+		<!-- <version>[0,)</version> -->
+		<!-- </dependency> -->
 
+		<!-- <dependency> -->
+		<!-- <groupId>junit</groupId> -->
+		<!-- <artifactId>junit</artifactId> -->
+		<!-- <scope>test</scope> -->
+		<!-- </dependency> -->
 
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.scalatest</groupId>
-			<artifactId>scalatest_${projectScalaVersion}</artifactId>
-			<scope>test</scope>
-		</dependency>
+		<!-- <dependency> -->
+		<!-- <groupId>org.scalatest</groupId> -->
+		<!-- <artifactId>scalatest_${version.scala.epoch}</artifactId> -->
+		<!-- <scope>test</scope> -->
+		<!-- </dependency> -->
 
 	</dependencies>
 
